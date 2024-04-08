@@ -1,0 +1,10 @@
+defaultContentLanguage = "de"
+title = "Detox your work"
+baseURL = "https://javaland2023.netlify.app/"
+description = ""
+
+log = true
+logFile = "hugo-build.log"
+
+[markup.goldmark.renderer]
+unsafe= true

@@ -1,0 +1,1356 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.7/dist/cdn.min.js"></script>
+    <title>Social</title>
+</head>
+
+<body class="font-sans antialiased relative" x-data="{ isScrollAtTop: true, menu:false }">
+
+    <div :class="{ '-translate-y-full' : isScrollAtTop }"
+        @scroll.window="isScrollAtTop = (window.pageYOffset > 500) ? false : true" x-cloak
+        class=" bg-black lg:sticky lg:top-0 lg:block hidden z-50 border-b-2 bg-no-repeat bg-top border-primary w-full transition-all ease-in-out duration-300 lg:overflow-x-hidden">
+        <div class=" relative w-full h-full">
+            <div class="flex w-full h-full absolute inset-0">
+
+                <div class="w-1/2 lg:bg-white lg:skew-x-[20deg] h-full absolute lg:-right-10 lg:block hidden"></div>
+            </div>
+            <div class="xl:container ">
+                <nav
+                    class="items-center justify-between hidden gap-3 py-8 xl:px-0 px-12 font-medium tracking-wide text-white uppercase lg:flex xl:gap-10 mix-blend-difference">
+                    <button type="button" @click="$refs.DieWahrheit.scrollIntoView()">Die Wahrheit</button>
+                    <button type="button" @click="$refs.Mobbing.scrollIntoView()">Mobbing</button>
+                    <button type="button" @click="$refs.Sexismus.scrollIntoView()">Sexismus</button>
+                    <button type="button" @click="$refs.ToxischeFührung.scrollIntoView()">Toxische Führung</button>
+                    <button type="button" @click="$refs.Lösung.scrollIntoView()">Lösung</button>
+                    <button type="button" @click="$refs.Statistiken.scrollIntoView()">Statistiken</button>
+                    <button type="button" @click="$refs.überuns.scrollIntoView()">über uns</button>
+                    <button type="button" @click="$refs.Kontakte.scrollIntoView()">Kontakte</button>
+                </nav>
+                <div class=" lg:hidden flex justify-end py-6">
+                    <button @click="menu = !menu" class="text-white lg:hidden mix-blend-difference">
+                        <svg x-show="!menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-10 h-10 shrink-0 ">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <svg x-show="menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-10 h-10 shrink-0 ">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div x-show="menu" @click.away="menu=false" x-cloak x-collapse class="absolute inset-x-0 w-full h-full">
+                    <div class="relative z-10 rounded shadow-xl sm:p-12 p-9 bg-white/80 backdrop-blur">
+                        <nav class="flex flex-col gap-5 text-lg font-medium text-dark">
+                            <button type="button"
+                                class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                @click="$refs.DieWahrheit.scrollIntoView(), menu=false">Die Wahrheit</button>
+                            <button type="button"
+                                class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                @click="$refs.Mobbing.scrollIntoView() , menu=false">Mobbing</button>
+                            <button type="button"
+                                class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                @click="$refs.Sexismus.scrollIntoView(), menu=false">Sexismus</button>
+                            <button type="button"
+                                class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                @click="$refs.ToxischeFührung.scrollIntoView(), menu=false">Toxische
+                                Führung</button>
+                            <button type="button"
+                                class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                @click="$refs.Lösung.scrollIntoView(), menu=false">Lösung</button>
+                            <button type="button"
+                                class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                @click="$refs.Statistiken.scrollIntoView(), menu=false">Statistiken</button>
+                            <button type="button"
+                                class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                @click="$refs.überuns.scrollIntoView(), menu=false">über uns</button>
+                            <button type="button"
+                                class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                @click="$refs.Kontakte.scrollIntoView(), menu=false">Kontakte</button>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overflow-x-hidden max-w-screen lg:-mt-[90px]">
+        <div
+            class="bg-black relative w-full sm:bg-top bg-top bg-no-repeat sm:bg-[url('/assets/backgrounds/top-1.svg')] bg-[url('/assets/backgrounds/top-mb-2.svg')]">
+            <div class="container 2xl:px-56 xl:px-32 lg:px-0">
+                <div class="relative w-full">
+                    <nav
+                        class="items-center justify-between hidden gap-3 py-12 xl:px-0 px-12 font-medium tracking-wide text-white uppercase lg:flex xl:gap-10 mix-blend-difference">
+                        <button type="button" @click="$refs.DieWahrheit.scrollIntoView()">Die Wahrheit</button>
+                        <button type="button" @click="$refs.Mobbing.scrollIntoView()">Mobbing</button>
+                        <button type="button" @click="$refs.Sexismus.scrollIntoView()">Sexismus</button>
+                        <button type="button" @click="$refs.ToxischeFührung.scrollIntoView()">Toxische Führung</button>
+                        <button type="button" @click="$refs.Lösung.scrollIntoView()">Lösung</button>
+                        <button type="button" @click="$refs.Statistiken.scrollIntoView()">Statistiken</button>
+                        <button type="button" @click="$refs.überuns.scrollIntoView()">über uns</button>
+                        <button type="button" @click="$refs.Kontakte.scrollIntoView()">Kontakte</button>
+                    </nav>
+
+                    <div class="flex justify-end py-12 sm:py-10 mix-blend-difference">
+                        <button @click="menu = !menu" class="text-white lg:hidden ">
+                            <svg x-show="!menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-10 h-10 shrink-0 ">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                            <svg x-show="menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-10 h-10 shrink-0 ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div x-show="menu" @click.away="menu=false" x-cloak x-collapse class="absolute inset-x-0 w-full">
+                        <div class="relative z-10 rounded shadow-xl sm:p-12 p-9 bg-white">
+                            <nav class="flex flex-col gap-5 text-lg font-medium text-dark ">
+                                <button type="button"
+                                    class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                    @click="$refs.DieWahrheit.scrollIntoView(), menu=false">Die Wahrheit</button>
+                                <button type="button"
+                                    class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                    @click="$refs.Mobbing.scrollIntoView() , menu=false">Mobbing</button>
+                                <button type="button"
+                                    class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                    @click="$refs.Sexismus.scrollIntoView(), menu=false">Sexismus</button>
+                                <button type="button"
+                                    class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                    @click="$refs.ToxischeFührung.scrollIntoView(), menu=false">Toxische
+                                    Führung</button>
+                                <button type="button"
+                                    class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                    @click="$refs.Lösung.scrollIntoView(), menu=false">Lösung</button>
+                                <button type="button"
+                                    class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                    @click="$refs.Statistiken.scrollIntoView(), menu=false">Statistiken</button>
+                                <button type="button"
+                                    class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                    @click="$refs.überuns.scrollIntoView(), menu=false">über uns</button>
+                                <button type="button"
+                                    class="block transition-colors duration-150 ease-in-out hover:text-primary"
+                                    @click="$refs.Kontakte.scrollIntoView(), menu=false">Kontakte</button>
+
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="container sm:pt-64 pt-7 2xl:pt-36 lg:pt-28">
+                <p class="max-w-md mb-4 text-light sm:mb-0">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua.
+                </p>
+                <h1
+                    class="text-primary 2xl:text-[250px] xl:text-[240px] lg:text-[190px] md:text-[160px] sm:text-[140px] text-[80px] font-bold font-oswald leading-none xl:-ml-4 sm:-ml-1.5 text-wrap capitalize">
+                    HEADLINE
+                </h1>
+                <div class="flex flex-col-reverse items-start justify-center gap-10 mt-4 sm:mt-12 sm:flex-row">
+                    <img class="hidden sm:block" src="/assets/svg/arrow-1.svg" />
+                    <p class="max-w-xs text-white">
+                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                        takimata
+                        sanctus est Lorem ipsum dolor sit amet.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-10 bg-black">
+            <div
+                class="bg-black lg:pb-[250px] sm:pb-[150px] pb-[70px] bg-no-repeat bg-bottom lg:bg-[url('/assets/backgrounds/x.svg')] bg-[url('/assets/backgrounds/x-mb.svg')]">
+                <div class="container">
+                    <div
+                        class="max-w-5xl xl:h-[600px] lg:h-[500px] md:h-[420px] sm:h-[360px] h-[220px] mx-auto overflow-hidden border rounded-2xl border-light relative flex items-center justify-center">
+                        <img class="object-cover w-full h-full" alt="video" src="/assets/images/video.jpg" />
+                        <button type="button"
+                            class="absolute w-20 h-20 transition-all duration-300 ease-in-out lg:w-56 lg:h-56 sm:w-40 sm:h-40 shrink-0 hover:scale-110">
+                            <img class="w-full h-full shrink-0" src="assets/svg/play-button.svg" role="image" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-black">
+            <div class="container">
+                <div class="w-full max-w-5xl mx-auto">
+                    <img class="object-contain w-full h-full" alt="Image" src="assets/images/img-1.svg" />
+                </div>
+                <div class="flex flex-col items-end justify-between gap-5 xl:mt-5 xl:items-center xl:flex-row">
+                    <img class="hidden lg:h-48 h-36 xl:hidden sm:block" src="/assets/svg/arrow-down.svg" />
+                    <img class="hidden h-40 shrink-0 xl:block" src="/assets/svg/arrow-right.svg" />
+                    <div
+                        class="max-w-3xl w-full sm:h-60 text-white lg:text-lg text-base md:pl-28 sm:pl-10 md:pr-20 sm:pr-7 md:text-left text-center xl:py-20 lg:py-20 md:py-20 sm:py-16 py-10 flex xl:items-end bg-no-repeat bg-contain sm:bg-[url('/assets/backgrounds/p.svg')]">
+                        <p>
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt
+                            ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-black pt-14 lg:pt-36 md:pt-24 sm:pt-16" x-ref="DieWahrheit">
+            <div class="container">
+                <div class="relative flex items-center justify-center w-full sm:justify-between">
+                    <img class="hidden w-8 md:w-11 lg:w-14 xl:w-20 sm:block" alt="image"
+                        src="/assets/svg/left-ex.svg" />
+                    <h2 class="font-bold text-center text-primary font-oswald xl:text-[140px] lg:text-[100px] md:text-[90px] sm:text-[80px] text-7xl
+                         bg-no-repeat bg-bottom pb-12 sm:bg-[url('/assets/backgrounds/underline.svg')]">
+                        Die Wahrheit
+                    </h2>
+                    <img class="hidden w-8 lg:w-14 md:w-11 xl:w-20 sm:block" alt="image"
+                        src="/assets/svg/right-ex.svg" />
+                </div>
+
+                <div
+                    class="grid w-full max-w-xl grid-cols-1 gap-12 pt-8 mx-auto sm:pt-12 xl:pt-24 sm:grid-cols-2 lg:max-w-2xl xl:gap-8 xl:grid-cols-4 2xl:pt-28 text-light xl:max-w-full">
+                    <div>
+                        <div class="relative w-full">
+                            <img class="absolute bottom-0 w-full" src="/assets/svg/underline-white.svg" />
+                            <p
+                                class="w-full font-bold text-center pb-2 lg:text-[100px] md:text-[80px] text-[70px] font-oswald">
+                                105</p>
+                        </div>
+                        <p class="pt-5 text-sm text-center">
+                            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                            takimata sanctus est Lorem ipsum dolor sit amet.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="relative w-full">
+                            <img class="absolute bottom-0 w-full" src="/assets/svg/underline-white.svg" />
+                            <p
+                                class="w-full font-bold text-center pb-2 lg:text-[100px] md:text-[80px] text-[70px] font-oswald">
+                                +55</p>
+                        </div>
+                        <p class="pt-5 text-sm text-center">
+                            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                            takimata sanctus est Lorem ipsum dolor sit amet.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="relative w-full">
+                            <img class="absolute bottom-0 w-full" src="/assets/svg/underline-white.svg" />
+                            <p
+                                class="w-full font-bold text-center pb-2 lg:text-[100px] md:text-[80px] text-[70px] font-oswald">
+                                +140</p>
+                        </div>
+                        <p class="pt-5 text-sm text-center">
+                            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                            takimata sanctus est Lorem ipsum dolor sit amet.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="relative w-full">
+                            <img class="absolute bottom-0 w-full" src="/assets/svg/underline-white.svg" />
+                            <p
+                                class="w-full font-bold text-center pb-2 lg:text-[100px] md:text-[80px] text-[70px] font-oswald">
+                                +205</p>
+                        </div>
+                        <p class="pt-5 text-sm text-center">
+                            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                            takimata sanctus est Lorem ipsum dolor sit amet.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative flex pt-16 pb-32">
+                    <div class="relative z-10 w-full max-w-3xl">
+                        <img class="w-full" src="/assets/images/img-2.png" alt="image" />
+                    </div>
+                    <img class="absolute bottom-0 right-0 w-full max-w-3xl -z-0" src="/assets/svg/x-2.svg" />
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-20 bg-black" x-ref="Mobbing">
+            <div class="container">
+                <div class="relative flex items-center justify-center md:justify-between">
+                    <img class="absolute 2xl:-bottom-32 xl:-bottom-24 -bottom-10 inset-x-[60%] 2xl:w-36 xl:w-28 w-20 xl:block hidden"
+                        src="/assets/svg/arrow-down.svg" />
+                    <img class="hidden w-56 -ml-20 lg:-ml-40 2xl:w-96 xl:w-80 lg:w-72 md:block"
+                        src="/assets/svg/sad.svg" />
+                    <h2 class="font-bold text-center heading-2 font-oswald text-primary">
+                        Mobbing
+                    </h2>
+                    <img class="hidden w-40 -mr-16 lg:-mr-32 2xl:w-64 xl:w-56 md:block" src="/assets/svg/sad.svg" />
+                </div>
+
+                <div class="flex flex-col items-center justify-between gap-2 mt-16 sm:gap-10 xl:flex-row md:mt-12">
+                    <div
+                        class="max-w-[600px] shrink-0 w-full text-white text-lg md:px-16 md:py-10 sm:py-8 py-16 px-12 flex items-center bg-no-repeat bg-contain sm:bg-[url('/assets/backgrounds/p-2.svg')] bg-[url('/assets/backgrounds/p-2-mb.svg')]">
+                        <p>
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+                            et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+                            Lorem ipsum dolor sit amet.
+
+                        </p>
+                    </div>
+                    <img class="h-full w-full xl:max-w-full max-w-md" src="/assets/images/img-3.png" />
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-32 pb-12 bg-black">
+            <div class="container">
+                <h2 class="pb-12 text-5xl font-bold text-center sm:text-6xl xl:pb-20 text-light font-oswald">
+                    Die Story zum Thema
+                </h2>
+                <div class="flex flex-col-reverse items-center justify-between gap-20 xl:gap-2 xl:flex-row">
+                    <div class="w-full max-w-md xl:max-w-sm shrink-0">
+                        <img class="w-full" alt="image" src="/assets/images/img-4.png" />
+                    </div>
+
+                    <div class="relative drop-shadow-card-primary">
+                        <div
+                            class="absolute w-24 h-24 xl:-mt-12 rotate-45 bg-black xl:left-[72px] rounded-s-lg xl:inset-y-1/2 shrink-0 xl:bottom-auto -bottom-6 xl:ml-auto -ml-12 xl:inset-x-auto inset-x-1/2">
+                        </div>
+                        <div class="xl:ml-28">
+                            <div
+                                class="relative px-6 py-5 text-lg text-justify bg-black xl:text-left sm:px-10 sm:py-9 rounded-20 text-light">
+
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                                sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                                sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                                amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
+                                et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                                sanctus est Lorem ipsum dolor sit amet.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-12 mt-20 lg:grid-cols-2">
+                    <div class="bg-black rounded-20 drop-shadow-card-primary">
+                        <div
+                            class="h-[350px] mx-auto overflow-hidden rounded-t-20 relative flex items-center justify-center">
+                            <img class="object-cover w-full h-full" alt="video" src="/assets/images/video.jpg" />
+                            <button type="button"
+                                class="absolute w-32 h-32 transition-all duration-300 ease-in-out shrink-0 hover:scale-110">
+                                <img class="w-full h-full shrink-0" src="assets/svg/play-button.svg" role="image" />
+                            </button>
+                        </div>
+                        <div class="px-6 py-5 sm:px-8 sm:py-9">
+                            <p class="text-sm text-light">
+                                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                                gubergren,
+                                no
+                                sea takimata sanctus est Lorem ipsum dolor sit amet.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black rounded-20 drop-shadow-card-primary">
+                        <div
+                            class="h-[350px] mx-auto overflow-hidden rounded-t-20 relative flex items-center justify-center">
+                            <img class="object-cover w-full h-full" alt="video" src="/assets/images/video.jpg" />
+                            <button type="button"
+                                class="absolute w-32 h-32 transition-all duration-300 ease-in-out shrink-0 hover:scale-110">
+                                <img class="w-full h-full shrink-0" src="assets/svg/play-button.svg" role="image" />
+                            </button>
+                        </div>
+                        <div class="px-6 py-5 sm:px-8 sm:py-9">
+                            <p class="text-sm text-light">
+                                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                                gubergren,
+                                no
+                                sea takimata sanctus est Lorem ipsum dolor sit amet.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-20 lg:mt-28">
+                    <h2 class="text-5xl font-bold text-center sm:text-6xl text-primary font-oswald">
+                        Die Meinung unserer Psychologin zum Thema
+                    </h2>
+
+                    <div
+                        class="flex flex-col-reverse items-center justify-between gap-2 mt-10 sm:mt-16 lg:flex-row-reverse">
+                        <div
+                            class="flex flex-col items-center justify-center max-w-sm gap-4 rounded-full mt-14 sm:mt-16 shrink-0 lg:mt-0">
+                            <img class="object-cover object-top w-40 h-40 rounded-full xl:w-60 xl:h-60 shrink-0"
+                                alt="image" src="/assets/images/user-1.png" />
+
+                            <p class="text-sm text-center text-light">
+                                Dr. Katharina Stenger
+                            </p>
+                        </div>
+
+                        <div class="relative drop-shadow-card-primary">
+                            <div
+                                class="absolute w-24 h-24 lg:-mt-12 rotate-45 bg-black xl:right-[72px] lg:right-[46px] rounded-s-lg lg:inset-y-1/2 shrink-0 lg:bottom-auto -bottom-6 lg:ml-auto -ml-12 lg:inset-x-auto inset-x-1/2">
+                            </div>
+                            <div class="xl:mr-28 lg:mr-20">
+                                <div
+                                    class="relative px-6 py-5 text-lg text-justify bg-black xl:text-left sm:px-10 sm:py-9 rounded-20 text-light">
+
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                    tempor
+                                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                                    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                                    rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                                    amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                    eirmod
+                                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+                                    eos
+                                    et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                                    takimata
+                                    sanctus est Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-5 bg-black xl:py-20">
+            <div
+                class="mx-auto max-w-screen-2xl bg-no-repeat bg-center bg-[url('/assets/svg/ribbon.svg')] xl:h-72 sm:h-60 h-48">
+            </div>
+        </div>
+
+        <div class="pt-8 bg-black sm:pt-0 scroll-mt-10" x-ref="Sexismus">
+            <div class="container">
+                <h2 class="font-bold text-center heading-2 font-oswald text-primary">
+                    Sexismus
+                </h2>
+
+                <div class="flex flex-col items-center justify-between gap-10 mt-12 sm:mt-20 xl:flex-row-reverse">
+                    <div
+                        class="max-w-[600px] shrink-0 w-full text-white text-lg md:px-16 md:py-10 sm:py-8 py-16 px-12 flex items-center bg-no-repeat bg-contain sm:bg-[url('/assets/backgrounds/p-2.svg')] bg-[url('/assets/backgrounds/p-2-mb.svg')]">
+                        <p>
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+                            et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+                            Lorem ipsum dolor sit amet.
+
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <img class="absolute sm:block hidden -right-5 sm:h-28 h-20 2xl:h-32 2xl:-right-16 2xl:-top-12 xl:-top-16 -rotate-[20deg] xl:scale-100 scale-y-[-1]"
+                            alt="arrow" src="/assets/svg/arrow-right-2.svg" />
+                        <img class="h-full 2xl:w-[460px] xl:w-[420px] shrink-0" src="/assets/images/img-5.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-32 pb-12 bg-black">
+            <div class="container">
+                <h2 class="pb-12 text-5xl font-bold text-center sm:text-6xl xl:pb-20 text-light font-oswald">
+                    Die Story zum Thema
+                </h2>
+                <div class="flex flex-col-reverse items-center justify-between gap-10 sm:gap-20 xl:gap-2 xl:flex-row">
+                    <div class="w-full max-w-md xl:max-w-sm shrink-0">
+                        <img class="w-full" alt="image" src="/assets/images/img-6.png" />
+                    </div>
+
+                    <div class="relative drop-shadow-card-primary">
+                        <div
+                            class="absolute w-24 h-24 xl:-mt-12 rotate-45 bg-black xl:left-[72px] rounded-s-lg xl:inset-y-1/2 shrink-0 xl:bottom-auto -bottom-6 xl:ml-auto -ml-12 xl:inset-x-auto inset-x-1/2">
+                        </div>
+                        <div class="xl:ml-28">
+                            <div
+                                class="relative px-6 py-5 text-lg text-justify bg-black xl:text-left sm:px-10 sm:py-9 rounded-20 text-light">
+
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                                sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                                sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                                amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
+                                et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                                sanctus est Lorem ipsum dolor sit amet.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid grid-cols-1 gap-12 mt-20 lg:grid-cols-2">
+                    <div class="bg-black rounded-20 drop-shadow-card-primary">
+                        <div
+                            class="h-[350px] mx-auto overflow-hidden rounded-t-20 relative flex items-center justify-center">
+                            <img class="object-cover w-full h-full" alt="video" src="/assets/images/video.jpg" />
+                            <button type="button"
+                                class="absolute w-32 h-32 transition-all duration-300 ease-in-out shrink-0 hover:scale-110">
+                                <img class="w-full h-full shrink-0" src="assets/svg/play-button.svg" role="image" />
+                            </button>
+                        </div>
+                        <div class="px-6 py-5 sm:px-8 sm:py-9">
+                            <p class="text-sm text-light">
+                                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                                gubergren,
+                                no
+                                sea takimata sanctus est Lorem ipsum dolor sit amet.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black rounded-20 drop-shadow-card-primary">
+                        <div
+                            class="h-[350px] mx-auto overflow-hidden rounded-t-20 relative flex items-center justify-center">
+                            <img class="object-cover w-full h-full" alt="video" src="/assets/images/video.jpg" />
+                            <button type="button"
+                                class="absolute w-32 h-32 transition-all duration-300 ease-in-out shrink-0 hover:scale-110">
+                                <img class="w-full h-full shrink-0" src="assets/svg/play-button.svg" role="image" />
+                            </button>
+                        </div>
+                        <div class="px-6 py-5 sm:px-8 sm:py-9">
+                            <p class="text-sm text-light">
+                                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                                gubergren,
+                                no
+                                sea takimata sanctus est Lorem ipsum dolor sit amet.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-20 lg:mt-28">
+                    <h2 class="text-5xl font-bold text-center sm:text-6xl text-primary font-oswald">
+                        Die Meinung unserer Psychologin zum Thema
+                    </h2>
+
+                    <div
+                        class="flex flex-col-reverse items-center justify-between gap-2 mt-8 sm:mt-16 lg:flex-row-reverse">
+                        <div
+                            class="flex flex-col items-center justify-center max-w-sm gap-4 rounded-full mt-14 sm:mt-16 shrink-0 lg:mt-0">
+                            <img class="object-cover object-top w-40 h-40 rounded-full xl:w-60 xl:h-60 shrink-0"
+                                alt="image" src="/assets/images/user-1.png" />
+
+                            <p class="text-sm text-center text-light">
+                                Dr. Katharina Stenger
+                            </p>
+                        </div>
+
+                        <div class="relative drop-shadow-card-primary">
+                            <div
+                                class="absolute w-24 h-24 lg:-mt-12 rotate-45 bg-black xl:right-[72px] lg:right-[46px] rounded-s-lg lg:inset-y-1/2 shrink-0 lg:bottom-auto -bottom-6 lg:ml-auto -ml-12 lg:inset-x-auto inset-x-1/2">
+                            </div>
+                            <div class="xl:mr-28 lg:mr-20">
+                                <div
+                                    class="relative px-6 py-5 text-lg text-justify bg-black xl:text-left sm:px-10 sm:py-9 rounded-20 text-light">
+
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                    tempor
+                                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                                    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                                    rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                                    amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                    eirmod
+                                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+                                    eos
+                                    et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                                    takimata
+                                    sanctus est Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-4 bg-black sm:py-8 xl:py-20 lg:py-12">
+            <div
+                class="mx-auto max-w-screen-2xl bg-no-repeat bg-center xl:bg-[url('/assets/backgrounds/line.svg')] lg:bg-[url('/assets/backgrounds/line-md.svg')] bg-[url('/assets/backgrounds/line-mb.svg')] h-20">
+            </div>
+        </div>
+
+        <div class="pt-10 bg-black" x-ref="ToxischeFührung">
+            <div class="container ">
+                <h2 class="font-bold text-center heading-2 text-primary font-oswald">
+                    Toxische Führung
+                </h2>
+
+                <p class="max-w-5xl pt-12 mx-auto text-lg text-center text-light">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </p>
+            </div>
+        </div>
+
+        <div class="pb-12 bg-black lg:pt-32 pt-28">
+            <div class="container">
+                <h2
+                    class="pb-8 text-5xl font-bold text-center lg:pb-12 sm:pb-10 xl:pb-20 sm:text-6xl text-light font-oswald">
+                    Die Story zum Thema
+                </h2>
+                <div class="flex flex-col-reverse items-center justify-between gap-8 xl:flex-row">
+                    <div class="w-full max-w-md xl:max-w-sm shrink-0">
+                        <img class="w-full" alt="image" src="/assets/images/img-7.png" />
+                    </div>
+                    <div
+                        class="relative px-6 py-5 text-lg text-justify bg-black xl:text-left sm:px-10 sm:py-9 rounded-20 text-light drop-shadow-card-primary">
+
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                        sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                        aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
+                        et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                        sanctus est Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+
+                <div>
+                    <div class="relative w-full">
+                        <div class="grid grid-cols-1 gap-12 mt-20 lg:grid-cols-2">
+                            <div class="bg-black rounded-20 drop-shadow-card-primary">
+                                <div
+                                    class="h-[350px] mx-auto overflow-hidden rounded-t-20 relative flex items-center justify-center">
+                                    <img class="object-cover w-full h-full" alt="video"
+                                        src="/assets/images/video.jpg" />
+                                    <button type="button"
+                                        class="absolute w-32 h-32 transition-all duration-300 ease-in-out shrink-0 hover:scale-110">
+                                        <img class="w-full h-full shrink-0" src="assets/svg/play-button.svg"
+                                            role="image" />
+                                    </button>
+                                </div>
+                                <div class="px-6 py-5 sm:px-8 sm:py-9">
+                                    <p class="text-sm text-light">
+                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                                        gubergren,
+                                        no
+                                        sea takimata sanctus est Lorem ipsum dolor sit amet.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="bg-black rounded-20 drop-shadow-card-primary">
+                                <div
+                                    class="h-[350px] mx-auto overflow-hidden rounded-t-20 relative flex items-center justify-center">
+                                    <img class="object-cover w-full h-full" alt="video"
+                                        src="/assets/images/video.jpg" />
+                                    <button type="button"
+                                        class="absolute w-32 h-32 transition-all duration-300 ease-in-out shrink-0 hover:scale-110">
+                                        <img class="w-full h-full shrink-0" src="assets/svg/play-button.svg"
+                                            role="image" />
+                                    </button>
+                                </div>
+                                <div class="px-6 py-5 sm:px-8 sm:py-9">
+                                    <p class="text-sm text-light">
+                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                                        gubergren,
+                                        no
+                                        sea takimata sanctus est Lorem ipsum dolor sit amet.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="absolute hidden xl:block -bottom-36 2xl:-left-24 -left-16"
+                            src="/assets/svg/left-3.svg" />
+                        <img class="absolute hidden xl:block -bottom-36 2xl:-right-24 -right-16"
+                            src="/assets/svg/right-3.svg" />
+                    </div>
+                    <div class="max-w-4xl mx-auto mt-20 xl:mt-24">
+                        <p class="text-4xl font-bold leading-snug text-center font-oswald text-primary">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt
+                            ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-20 mt-16 sm:grid-cols-2">
+                    <div class="flex flex-col items-center gap-8 xl:flex-row">
+                        <p class="font-bold text-secondary font-oswald text-[100px] leading-none">75%</p>
+                        <p class="text-sm text-light">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                            dolor sit amet. At vero eos et accusam.</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-8 xl:flex-row">
+                        <p class="font-bold text-secondary font-oswald text-[100px] leading-none">82%</p>
+                        <p class="text-sm text-light">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                            dolor sit amet. At vero eos et accusam.</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-8 xl:flex-row">
+                        <p class="font-bold text-secondary font-oswald text-[100px] leading-none">76%</p>
+                        <p class="text-sm text-light">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                            dolor sit amet. At vero eos et accusam.</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-8 xl:flex-row">
+                        <p class="font-bold text-secondary font-oswald text-[100px] leading-none">75%</p>
+                        <p class="text-sm text-light">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                            dolor sit amet. At vero eos et accusam.</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-8 xl:flex-row">
+                        <p class="font-bold text-secondary font-oswald text-[100px] leading-none">82%</p>
+                        <p class="text-sm text-light">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                            dolor sit amet. At vero eos et accusam.</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-8 xl:flex-row">
+                        <p class="font-bold text-secondary font-oswald text-[100px] leading-none">76%</p>
+                        <p class="text-sm text-light">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                            dolor sit amet. At vero eos et accusam.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="w-full bg-black sm:py-5 lg:py-10"></div>
+            <div class="relative mx-auto">
+                <div
+                    class="h-[410px] w-full -mt-[34px] bg-no-repeat bg-center bg-[url('/assets/backgrounds/bottom-11.svg')]">
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white">
+            <div class="container">
+                <h2 class="mt-24 font-bold text-center text-primary font-oswald heading-2">
+                    Wie können WIR umdenken
+                </h2>
+                <div class="flex flex-col-reverse items-center gap-12 mt-12 sm:mt-20 xl:flex-row">
+                    <div
+                        class="max-w-[750px] shrink-0 text-center w-full text-dark text-lg lg:px-24 sm:px-20 lg:py-20 md:py-14 sm:pb-16 sm:pt-10 flex items-center bg-no-repeat bg-contain sm:bg-[url('/assets/backgrounds/p-3.svg')]">
+                        <p>
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                    </div>
+                    <img class="hidden w-40 -rotate-90 lg:w-56 xl:w-72 xl:rotate-0 sm:block" alt="right arrow"
+                        src="/assets/svg/arrow-right-4.svg" />
+                </div>
+            </div>
+
+            <div class="container mt-12">
+                <img class="object-contain w-full h-full" alt="image" src="/assets/images/img-8.png" />
+            </div>
+        </div>
+
+        <div class="bg-white">
+            <div class="container relative pt-12 sm:pt-28">
+                <div class="relative flex items-center">
+                    <img class="absolute xl:-bottom-36 md:-bottom-28 -bottom-24 md:w-32 w-24 inset-x-[55%] sm:block hidden"
+                        src="/assets/svg/arrow-down.svg" />
+                    <h2
+                        class="relative max-w-4xl mx-auto font-bold leading-tight text-center text-primary font-oswald heading-2">
+                        Was könnt IHR tun?
+                    </h2>
+                </div>
+                <img class="absolute left-0 hidden w-48 lg:w-64 -bottom-20 md:block" src="/assets/svg/smile.svg" />
+                <img class="absolute rotate-[60deg] w-36 right-16 top-0 md:block hidden" src="/assets/svg/smile.svg" />
+            </div>
+
+            <div class="container">
+
+                <div
+                    class="flex flex-col items-center justify-between gap-4 mt-12 sm:mt-28 sm:gap-10 xl:flex-row md:mt-32">
+                    <div
+                        class="max-w-[600px] shrink-0 w-full text-dark text-lg md:px-16 md:py-10 sm:py-8 py-16 px-12 flex items-center bg-no-repeat bg-contain sm:bg-[url('/assets/backgrounds/p-4.svg')] bg-[url('/assets/backgrounds/p-4-mb.svg')]">
+                        <p>
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+                            et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+                            Lorem ipsum dolor sit amet.
+
+                        </p>
+                    </div>
+                    <img class="h-full w-full xl:max-w-full max-w-lg" src="/assets/images/img-9.png" />
+                </div>
+                <div class="mt-20 lg:mt-28">
+                    <h2 class="text-5xl font-bold text-center sm:text-6xl text-primary font-oswald">
+                        Die Meinung unserer Psychologin zum Thema
+                    </h2>
+
+                    <div
+                        class="flex flex-col-reverse items-center justify-between gap-2 mt-8 sm:mt-16 lg:flex-row-reverse">
+                        <div
+                            class="flex flex-col items-center justify-center max-w-sm gap-4 rounded-full mt-14 sm:mt-16 shrink-0 lg:mt-0">
+                            <img class="object-cover object-top w-40 h-40 rounded-full xl:w-60 xl:h-60 shrink-0"
+                                alt="image" src="/assets/images/user-1.png" />
+
+                            <p class="text-sm text-center text-dark">
+                                Dr. Katharina Stenger
+                            </p>
+                        </div>
+
+                        <div class="relative drop-shadow-card-primary">
+                            <div
+                                class="absolute w-24 h-24 lg:-mt-12 rotate-45 bg-white xl:right-[72px] lg:right-[46px] rounded-s-lg lg:inset-y-1/2 shrink-0 lg:bottom-auto -bottom-6 lg:ml-auto -ml-12 lg:inset-x-auto inset-x-1/2">
+                            </div>
+                            <div class="xl:mr-28 lg:mr-20">
+                                <div
+                                    class="relative px-6 py-5 text-lg text-justify bg-white xl:text-left sm:px-10 sm:py-9 rounded-20 text-dark">
+
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                    tempor
+                                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                                    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                                    rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                                    amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                    eirmod
+                                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+                                    eos
+                                    et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                                    takimata
+                                    sanctus est Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 gap-8 pb-10 sm:mt-20 mt-14 sm:grid-cols-2 xl:grid-cols-4 xl:mt-28 md:mt-24">
+                    <div>
+                        <div class="px-3 bg-white py-7 rounded-xl drop-shadow-card-primary">
+                            <a href="#" class="flex flex-col items-center justify-center gap-4">
+                                <svg class="w-12 h-12 shrink-0" width="24" height="38" viewBox="0 0 24 38" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M4.5 0C2.0325 0 0 2.14542 0 4.75V33.25C0 35.8546 2.0325 38 4.5 38H19.5C21.9675 38 24 35.8546 24 33.25V4.75C24 2.14542 21.9675 0 19.5 0H4.5ZM4.5 3.16602H19.5C20.3325 3.16602 21 3.8706 21 4.74935V33.2493C21 34.1281 20.3325 34.8327 19.5 34.8327H4.5C3.6675 34.8327 3 34.1281 3 33.2493V4.74935C3 3.8706 3.6675 3.16602 4.5 3.16602ZM10.5 31.6666C10.5 30.7926 11.172 30.0832 12 30.0832C12.828 30.0832 13.5 30.7926 13.5 31.6666C13.5 32.5406 12.828 33.2499 12 33.2499C11.172 33.2499 10.5 32.5406 10.5 31.6666Z"
+                                        fill="#EB539F" />
+                                </svg>
+                                <p class="text-2xl font-bold text-primary font-oswald">
+                                    +1 (555) 000 000
+                                </p>
+                            </a>
+                        </div>
+                        <p class="mt-5 text-sm text-center text-dark">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut
+                        </p>
+                    </div>
+                    <div>
+                        <div class="px-3 bg-white py-7 rounded-xl drop-shadow-card-primary">
+                            <a href="#" class="flex flex-col items-center justify-center gap-4">
+                                <svg class="w-12 h-12 shrink-0" width="24" height="38" viewBox="0 0 24 38" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M4.5 0C2.0325 0 0 2.14542 0 4.75V33.25C0 35.8546 2.0325 38 4.5 38H19.5C21.9675 38 24 35.8546 24 33.25V4.75C24 2.14542 21.9675 0 19.5 0H4.5ZM4.5 3.16602H19.5C20.3325 3.16602 21 3.8706 21 4.74935V33.2493C21 34.1281 20.3325 34.8327 19.5 34.8327H4.5C3.6675 34.8327 3 34.1281 3 33.2493V4.74935C3 3.8706 3.6675 3.16602 4.5 3.16602ZM10.5 31.6666C10.5 30.7926 11.172 30.0832 12 30.0832C12.828 30.0832 13.5 30.7926 13.5 31.6666C13.5 32.5406 12.828 33.2499 12 33.2499C11.172 33.2499 10.5 32.5406 10.5 31.6666Z"
+                                        fill="#EB539F" />
+                                </svg>
+                                <p class="text-2xl font-bold text-primary font-oswald">
+                                    +1 (555) 000 000
+                                </p>
+                            </a>
+                        </div>
+                        <p class="mt-5 text-sm text-center text-dark">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut
+                        </p>
+                    </div>
+                    <div>
+                        <div class="px-3 bg-white py-7 rounded-xl drop-shadow-card-primary">
+                            <a href="#" class="flex flex-col items-center justify-center gap-4">
+                                <svg class="w-12 h-12 shrink-0" width="24" height="38" viewBox="0 0 24 38" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M4.5 0C2.0325 0 0 2.14542 0 4.75V33.25C0 35.8546 2.0325 38 4.5 38H19.5C21.9675 38 24 35.8546 24 33.25V4.75C24 2.14542 21.9675 0 19.5 0H4.5ZM4.5 3.16602H19.5C20.3325 3.16602 21 3.8706 21 4.74935V33.2493C21 34.1281 20.3325 34.8327 19.5 34.8327H4.5C3.6675 34.8327 3 34.1281 3 33.2493V4.74935C3 3.8706 3.6675 3.16602 4.5 3.16602ZM10.5 31.6666C10.5 30.7926 11.172 30.0832 12 30.0832C12.828 30.0832 13.5 30.7926 13.5 31.6666C13.5 32.5406 12.828 33.2499 12 33.2499C11.172 33.2499 10.5 32.5406 10.5 31.6666Z"
+                                        fill="#EB539F" />
+                                </svg>
+                                <p class="text-2xl font-bold text-primary font-oswald">
+                                    +1 (555) 000 000
+                                </p>
+                            </a>
+                        </div>
+                        <p class="mt-5 text-sm text-center text-dark">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut
+                        </p>
+                    </div>
+                    <div>
+                        <div class="px-3 bg-white py-7 rounded-xl drop-shadow-card-primary">
+                            <a href="#" class="flex flex-col items-center justify-center gap-4">
+                                <svg class="w-12 h-12 shrink-0" width="24" height="38" viewBox="0 0 24 38" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M4.5 0C2.0325 0 0 2.14542 0 4.75V33.25C0 35.8546 2.0325 38 4.5 38H19.5C21.9675 38 24 35.8546 24 33.25V4.75C24 2.14542 21.9675 0 19.5 0H4.5ZM4.5 3.16602H19.5C20.3325 3.16602 21 3.8706 21 4.74935V33.2493C21 34.1281 20.3325 34.8327 19.5 34.8327H4.5C3.6675 34.8327 3 34.1281 3 33.2493V4.74935C3 3.8706 3.6675 3.16602 4.5 3.16602ZM10.5 31.6666C10.5 30.7926 11.172 30.0832 12 30.0832C12.828 30.0832 13.5 30.7926 13.5 31.6666C13.5 32.5406 12.828 33.2499 12 33.2499C11.172 33.2499 10.5 32.5406 10.5 31.6666Z"
+                                        fill="#EB539F" />
+                                </svg>
+                                <p class="text-2xl font-bold text-primary font-oswald">
+                                    +1 (555) 000 000
+                                </p>
+                            </a>
+                        </div>
+                        <p class="mt-5 text-sm text-center text-dark">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-5 bg-white lg:py-12 sm:py-8 xl:py-20">
+            <div
+                class="mx-auto max-w-screen-2xl bg-no-repeat bg-center bg-[url('/assets/svg/ribbon-3.svg')] xl:h-72 sm:h-60 h-48">
+            </div>
+        </div>
+
+        <div class="pb-24 bg-white">
+            <div class="container">
+                <div class="relative ">
+                    <img class="absolute hidden -bottom-24 -left-16 xl:block" src="/assets/svg/left-3.svg" />
+                    <img class="absolute hidden -bottom-24 -right-16 xl:block" src="/assets/svg/right-3.svg" />
+                    <h2 class="font-bold text-center heading-2 text-primary font-oswald">
+                        Was die Community denkt
+                    </h2>
+                </div>
+                <div class="max-w-4xl mx-auto mt-14 xl:mt-24">
+                    <p class="text-lg text-center text-dark">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor.
+                    </p>
+                </div>
+
+                <div
+                    class="max-w-lg px-10 py-12 mx-auto mt-16 bg-white xl:max-w-4xl drop-shadow-card-primary rounded-xl">
+                    <div class="grid w-full grid-cols-1 xl:grid-cols-2 gap-y-14 gap-x-8">
+                        <div>
+                            <p class="text-2xl text-dark">Lorem Ipsum</p>
+                            <div class="flex flex-col justify-between gap-10 mt-5 sm:items-center sm:flex-row">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#497AF9] rounded"></div>
+                                        <p class="text-base font-bold text-black">56% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#FC649B] rounded"></div>
+                                        <p class="text-base font-bold text-black">13% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#CCCCCC] rounded"></div>
+                                        <p class="text-base font-bold text-black">23% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#F5A9CF] rounded"></div>
+                                        <p class="text-base font-bold text-black">8% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                </div>
+                                <img class="w-44 h-44 shrink-0 place-self-center sm:place-self-end" alt="chart"
+                                    src="/assets/svg/chart.svg" />
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-2xl text-dark">Lorem Ipsum</p>
+                            <div class="flex flex-col justify-between gap-10 mt-5 sm:items-center sm:flex-row">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#497AF9] rounded"></div>
+                                        <p class="text-base font-bold text-black">56% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#FC649B] rounded"></div>
+                                        <p class="text-base font-bold text-black">13% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#CCCCCC] rounded"></div>
+                                        <p class="text-base font-bold text-black">23% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#F5A9CF] rounded"></div>
+                                        <p class="text-base font-bold text-black">8% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                </div>
+                                <img class="w-44 h-44 shrink-0 place-self-center sm:place-self-end" alt="chart"
+                                    src="/assets/svg/chart.svg" />
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-2xl text-dark">Lorem Ipsum</p>
+                            <div class="flex flex-col justify-between gap-10 mt-5 sm:items-center sm:flex-row">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#497AF9] rounded"></div>
+                                        <p class="text-base font-bold text-black">56% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#FC649B] rounded"></div>
+                                        <p class="text-base font-bold text-black">13% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#CCCCCC] rounded"></div>
+                                        <p class="text-base font-bold text-black">23% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#F5A9CF] rounded"></div>
+                                        <p class="text-base font-bold text-black">8% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                </div>
+                                <img class="w-44 h-44 shrink-0 place-self-center sm:place-self-end" alt="chart"
+                                    src="/assets/svg/chart.svg" />
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-2xl text-dark">Lorem Ipsum</p>
+                            <div class="flex flex-col justify-between gap-10 mt-5 sm:items-center sm:flex-row">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#497AF9] rounded"></div>
+                                        <p class="text-base font-bold text-black">56% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#FC649B] rounded"></div>
+                                        <p class="text-base font-bold text-black">13% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#CCCCCC] rounded"></div>
+                                        <p class="text-base font-bold text-black">23% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#F5A9CF] rounded"></div>
+                                        <p class="text-base font-bold text-black">8% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                </div>
+                                <img class="w-44 h-44 shrink-0 place-self-center sm:place-self-end" alt="chart"
+                                    src="/assets/svg/chart.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="max-w-4xl mx-auto mt-14 xl:mt-24">
+                    <p class="text-lg text-center text-dark">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor.
+                    </p>
+                </div>
+
+                <div
+                    class="max-w-lg px-10 py-12 mx-auto mt-12 bg-white sm:mt-16 xl:max-w-4xl drop-shadow-card-primary rounded-xl">
+                    <div class="grid w-full grid-cols-1 xl:grid-cols-2 gap-y-14 gap-x-8">
+                        <div>
+                            <p class="text-2xl text-dark">Lorem Ipsum</p>
+                            <div class="flex flex-col justify-between gap-10 mt-5 sm:items-center sm:flex-row">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#497AF9] rounded"></div>
+                                        <p class="text-base font-bold text-black">56% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#FC649B] rounded"></div>
+                                        <p class="text-base font-bold text-black">13% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#CCCCCC] rounded"></div>
+                                        <p class="text-base font-bold text-black">23% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#F5A9CF] rounded"></div>
+                                        <p class="text-base font-bold text-black">8% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                </div>
+                                <img class="w-44 h-44 shrink-0 place-self-center sm:place-self-end" alt="chart"
+                                    src="/assets/svg/chart.svg" />
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-2xl text-dark">Lorem Ipsum</p>
+                            <div class="flex flex-col justify-between gap-10 mt-5 sm:items-center sm:flex-row">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#497AF9] rounded"></div>
+                                        <p class="text-base font-bold text-black">56% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#FC649B] rounded"></div>
+                                        <p class="text-base font-bold text-black">13% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#CCCCCC] rounded"></div>
+                                        <p class="text-base font-bold text-black">23% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#F5A9CF] rounded"></div>
+                                        <p class="text-base font-bold text-black">8% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                </div>
+                                <img class="w-44 h-44 shrink-0 place-self-center sm:place-self-end" alt="chart"
+                                    src="/assets/svg/chart.svg" />
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-2xl text-dark">Lorem Ipsum</p>
+                            <div class="flex flex-col justify-between gap-10 mt-5 sm:items-center sm:flex-row">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#497AF9] rounded"></div>
+                                        <p class="text-base font-bold text-black">56% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#FC649B] rounded"></div>
+                                        <p class="text-base font-bold text-black">13% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#CCCCCC] rounded"></div>
+                                        <p class="text-base font-bold text-black">23% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#F5A9CF] rounded"></div>
+                                        <p class="text-base font-bold text-black">8% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                </div>
+                                <img class="w-44 h-44 shrink-0 place-self-center sm:place-self-end" alt="chart"
+                                    src="/assets/svg/chart.svg" />
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-2xl text-dark">Lorem Ipsum</p>
+                            <div class="flex flex-col justify-between gap-10 mt-5 sm:items-center sm:flex-row">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#497AF9] rounded"></div>
+                                        <p class="text-base font-bold text-black">56% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#FC649B] rounded"></div>
+                                        <p class="text-base font-bold text-black">13% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#CCCCCC] rounded"></div>
+                                        <p class="text-base font-bold text-black">23% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-5 shrink-0 bg-[#F5A9CF] rounded"></div>
+                                        <p class="text-base font-bold text-black">8% <span
+                                                class="font-normal text-black/50">Lorem
+                                                Ipsum</span></p>
+                                    </div>
+                                </div>
+                                <img class="w-44 h-44 shrink-0 place-self-center sm:place-self-end" alt="chart"
+                                    src="/assets/svg/chart.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-primary-light">
+            <div class="relative w-full mx-auto">
+                <div
+                    class="h-[475px] w-full bg-no-repeat -mt-[30px] bg-center bg-[url('/assets/backgrounds/bottom-22.svg')]">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="pb-16 pt-14 bg-primary-light 2xl:pb-36 lg:pb-28 sm:pb-20">
+            <div class="container">
+                <h2 class="font-bold text-center text-primary heading-2 font-oswald">
+                    Eine letzte Message
+                </h2>
+                <div
+                    class="relative flex flex-col items-center justify-between gap-8 mt-14 sm:gap-14 lg:mt-20 xl:flex-row-reverse">
+                    <div class="w-auto">
+                        <div
+                            class="max-w-[750px] w-full shrink-0 text-dark xl:text-[44px] sm:text-5xl text-2xl font-bold font-oswald sm:px-10 xl:py-16 px-10 sm:pb-20 sm:pt-16 pt-8 pb-10 flex items-center bg-no-repeat bg-contain bg-[url('/assets/backgrounds/p-5.svg')]">
+                            <p>
+                                BLEIBT GESUND & MUTIG
+                            </p>
+                        </div>
+                        <img class="absolute hidden lg:right-96 lg:-bottom-24 xl:w-36 sm:block"
+                            src="/assets/svg/smile-white-sm.svg" />
+                        <img class="absolute hidden w-64 -right-20 xl:-bottom-44 lg:-bottom-36 xl:w-72 sm:block"
+                            src="/assets/svg/smile-white.svg" />
+                    </div>
+                    <img class="h-full sm:w-[370px] w-56 xl:w-full xl:max-w-[380px] 2xl:max-w-sm"
+                        src="/assets/images/java.png" />
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="max-w-4xl mx-auto pt-14 lg:pt-44">
+                    <h2 class="text-5xl font-bold text-center sm:text-6xl text-primary font-oswald">
+                        Wer steckt hinter dieser Seite?
+                    </h2>
+
+                    <div class="flex flex-col gap-10 mt-9 sm:mt-20">
+                        <div
+                            class="flex flex-col items-center gap-2 text-center sm:gap-8 sm:items-start sm:flex-row sm:text-left">
+                            <img class="w-48 h-48 overflow-hidden rounded-full lg:w-64 lg:h-64 shrink-0"
+                                src="/assets/images/user-1.jpg" />
+                            <div class="mt-2">
+                                <p class="text-3xl font-bold font-oswald text-dark">
+                                    Lorem Ipsum
+                                </p>
+                                <p class="mt-5 text-lg text-dark">
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                    tempor
+                                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col items-center gap-2 text-center sm:gap-8 sm:items-start sm:flex-row sm:text-left">
+                            <img class="w-48 h-48 overflow-hidden rounded-full lg:w-64 lg:h-64 shrink-0"
+                                src="/assets/images/user-2.jpg" />
+                            <div class="mt-2">
+                                <p class="text-3xl font-bold font-oswald text-dark">
+                                    Lorem Ipsum
+                                </p>
+                                <p class="mt-5 text-lg text-dark">
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                    tempor
+                                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col items-center gap-2 text-center sm:gap-8 sm:items-start sm:flex-row sm:text-left">
+                            <img class="w-48 h-48 overflow-hidden rounded-full lg:w-64 lg:h-64 shrink-0"
+                                src="/assets/images/user-3.jpg" />
+                            <div class="mt-2">
+                                <p class="text-3xl font-bold font-oswald text-dark">
+                                    Lorem Ipsum
+                                </p>
+                                <p class="mt-5 text-lg text-dark">
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                    tempor
+                                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-12 sm:mt-24">
+                <div class="grid max-w-md grid-cols-1 gap-6 mx-auto lg:grid-cols-3 lg:max-w-full">
+                    <div class="py-9 px-7 rounded-xl bg-primary-light drop-shadow-card-primary">
+                        <div class="">
+                            <img class="object-contain w-full h-full" src="/assets/images/javaland.png" />
+                        </div>
+                        <p class="mt-8 text-lg text-dark">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua
+                        </p>
+                    </div>
+                    <div class="py-9 px-7 rounded-xl bg-primary-light drop-shadow-card-primary">
+                        <div class="">
+                            <img class="object-contain w-full h-full" src="/assets/images/javaland.png" />
+                        </div>
+                        <p class="mt-8 text-lg text-dark">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua
+                        </p>
+                    </div>
+                    <div class="py-9 px-7 rounded-xl bg-primary-light drop-shadow-card-primary">
+                        <div class="">
+                            <img class="object-contain w-full h-full" src="/assets/images/javaland.png" />
+                        </div>
+                        <p class="mt-8 text-lg text-dark">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>
